@@ -19,3 +19,17 @@ def get_char_counts(text):
             char_counts[char] = 1
             
     return char_counts
+# New helper function for sorting
+def sort_on(d):
+    return d["num"]
+
+# New function to convert dict to sorted list
+def get_sorted_char_list(char_counts_dict):
+    char_list = []
+    # Convert the dictionary to a list of dictionaries
+    for char, count in char_counts_dict.items():
+        char_list.append({"char": char, "num": count})
+    
+    # Sort the list in descending order using the helper function
+    char_list.sort(reverse=True, key=sort_on)
+    return char_list
